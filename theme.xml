@@ -1,0 +1,129 @@
+<!--
+theme name:    GC Menu
+inspired by:   The Gamecube system menu
+made by:       Anthony Caccese
+license:       creative commons CC-BY-NC-SA
+-->
+
+<theme>
+
+   <!--
+   ///
+   Variables
+   ///
+   -->
+   <variables>
+      <spacerImage>./_inc/images/space.png</spacerImage>
+      <fontRegular>./_inc/fonts/Rodin-Regular.ttf</fontRegular>
+      <fontBold>./_inc/fonts/Rodin-Bold.ttf</fontBold>
+   </variables>
+
+   <!--
+   ///
+   All Views
+   ///
+   -->
+   <view name="
+      system,
+      gamelist
+      ">
+      <image name="
+         background
+         ">
+         <origin>0 0</origin>
+         <pos>0 0</pos>
+         <cropSize>1 1</cropSize>
+         <path>./_inc/images/background.png</path>
+         <zIndex>0</zIndex>
+      </image>
+      <clock name="
+         clock
+         ">
+         <opacity>0</opacity>
+      </clock>
+      <systemstatus name="
+         system-status
+         ">
+         <origin>1 0</origin>
+         <fontPath>${fontRegular}</fontPath>
+         <textRelativeScale>0.75</textRelativeScale>
+      </systemstatus>
+      <helpsystem name="
+         help-system-view,
+         help-gamelist-view
+         ">
+         <origin>0.5 1</origin>
+         <pos>0.5 0.95</pos>
+         <fontPath>${fontRegular}</fontPath>
+         <entryRelativeScale>0.7</entryRelativeScale>
+         <letterCase>capitalize</letterCase>
+         <entries>start,a,up/down/left/right</entries>
+      </helpsystem>
+      <helpsystem name="
+         help-menu-view
+         ">
+         <scope>menu</scope>
+         <origin>0.5 0.5</origin>
+         <pos>0.5 0.95</pos>
+         <iconColor>cccccc</iconColor>
+         <textColor>cccccc</textColor>
+         <backgroundColor>181818</backgroundColor>
+         <backgroundHorizontalPadding>0.05 0.05</backgroundHorizontalPadding>
+         <backgroundVerticalPadding>0.05 0.05</backgroundVerticalPadding>
+         <backgroundCornerRadius>0.005</backgroundCornerRadius>
+      </helpsystem>
+      <grid name="
+         system-grid,
+         gamelist-grid
+         ">
+         <origin>0.5 0</origin>
+         <pos>0.5 0.09259259</pos><!-- 50% 100 -->
+         <itemScale>1.05</itemScale>
+         <textColor>ffffff</textColor>
+         <backgroundImage>./_inc/images/grid-item-background.png</backgroundImage>
+         <selectorImage>./_inc/images/grid-item-selector.png</selectorImage>
+         <imageRelativeScale>0.7</imageRelativeScale>
+         <selectorLayer>middle</selectorLayer>
+      </grid>
+   </view>
+
+   <!--
+   ///
+   System View
+   ///
+   -->
+   <view name="
+      system
+      ">
+      <grid name="
+         system-grid
+         ">
+         <staticImage>./_inc/systems/${system.theme}.png</staticImage>
+      </grid>
+   </view>
+
+   <!--
+   ///
+   Gamelist View
+   ///
+   -->
+   <view name="
+      gamelist
+      ">
+      <grid name="
+         gamelist-grid
+         ">
+         <imageType>cover</imageType>
+      </grid>
+   </view>
+
+   <!--
+   ///
+   Aspect Ratios
+   ///
+   -->
+   <aspectRatio name="16:9">
+      <include>./aspect-ratio-16-9.xml</include>
+   </aspectRatio>
+
+</theme>

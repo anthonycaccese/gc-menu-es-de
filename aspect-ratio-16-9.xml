@@ -1,0 +1,47 @@
+<!--
+16:9 resolution: 
+based on 1920x1080
+-->
+<theme>
+
+   <!--
+   ///
+   All Views
+   ///
+   -->
+   <view name="
+      system,
+      gamelist
+      ">
+      <grid name="
+         system-grid,
+         gamelist-grid
+         ">
+         <pos>0.5 0.07407407</pos><!-- 50% 80 -->
+         <size>0.88020833 0.81481481</size><!-- 1690 880 -->
+         <itemSize>0.08854167 -1</itemSize><!-- 170 170 -->
+         <itemSpacing>0.06875 0.05555556</itemSpacing><!-- 132 60 -->
+      </grid>
+   </view>
+
+   <!--
+   ///
+   System View
+   ///
+   -->
+   <view name="
+      system
+      ">
+   </view>
+
+   <!--
+   ///
+   Gamelist View
+   ///
+   -->
+   <view name="
+      gamelist
+      ">
+   </view>
+
+</theme>
