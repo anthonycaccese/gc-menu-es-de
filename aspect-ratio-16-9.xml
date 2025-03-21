@@ -41,12 +41,25 @@ based on 1920x1080
          <pos>0.5 0.465</pos>
          <size>0.4 0</size>
       </image>
+      <image name="
+         system-carousel-background-left
+         ">
+         <pos>0.125 0.465</pos>
+         <size>0.2 0</size>
+      </image>
+      <image name="
+         system-carousel-background-right
+         ">
+         <pos>0.875 0.465</pos>
+         <size>0.2 0</size>
+      </image>
       <carousel name="
          system-carousel
          ">
          <pos>0.5 0.465</pos>
          <maxItemCount>3</maxItemCount>
          <itemSize>0.1 0.15</itemSize>
+         <selectedItemMargins>0.04 0.04</selectedItemMargins>
          <itemScale>3.5</itemScale>
       </carousel>
       <text name="
