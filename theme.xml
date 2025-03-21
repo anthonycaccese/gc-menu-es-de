@@ -46,18 +46,45 @@ license:       creative commons CC-BY-NC-SA
          ">
          <origin>1 0</origin>
          <fontPath>${fontRegular}</fontPath>
-         <textRelativeScale>0.75</textRelativeScale>
+         <textRelativeScale>0.5</textRelativeScale>
+         <height>0.0462963</height><!-- 50 -->
+         <color>999999</color>
+         <customIcon icon="icon_bluetooth">./_inc/images/icon-bluetooth.svg</customIcon>
+         <customIcon icon="icon_wifi">./_inc/images/icon-wifi.svg</customIcon>
+         <customIcon icon="icon_cellular">./_inc/images/icon-cellular.svg</customIcon>
+         <customIcon icon="icon_battery_charging">./_inc/images/icon-battery-charging.svg</customIcon>
+         <customIcon icon="icon_battery_full">./_inc/images/icon-battery-full.svg</customIcon>
+         <customIcon icon="icon_battery_high">./_inc/images/icon-battery-high.svg</customIcon>
+         <customIcon icon="icon_battery_medium">./_inc/images/icon-battery-medium.svg</customIcon>
+         <customIcon icon="icon_battery_low">./_inc/images/icon-battery-low.svg</customIcon>
       </systemstatus>
       <helpsystem name="
          help-system-view,
          help-gamelist-view
          ">
+         <scope>view</scope>
          <origin>0.5 1</origin>
-         <pos>0.5 0.95</pos>
+         <pos>0.5 0.96</pos>
+         <fontSize>0.04814815</fontSize><!-- 52 -->
          <fontPath>${fontRegular}</fontPath>
          <entryRelativeScale>0.7</entryRelativeScale>
          <letterCase>capitalize</letterCase>
-         <entries>start,a,up/down/left/right</entries>
+         <entries>start,back,a,b,left/right</entries>
+         <iconColor>ffffff</iconColor>
+         <textColor>ffffff</textColor>
+         <!-- xbox -->
+         <customButtonIcon button="button_a_XBOX">./_inc/images/help-button-a.svg</customButtonIcon>
+         <customButtonIcon button="button_b_XBOX">./_inc/images/help-button-b.svg</customButtonIcon>
+         <customButtonIcon button="button_start_XBOX">./_inc/images/help-button-start.svg</customButtonIcon>
+         <customButtonIcon button="button_back_XBOX">./_inc/images/help-button-back.svg</customButtonIcon>
+         <!-- snes -->
+         <customButtonIcon button="button_a_SNES">./_inc/images/help-button-a.svg</customButtonIcon>
+         <customButtonIcon button="button_b_SNES">./_inc/images/help-button-b.svg</customButtonIcon>
+         <customButtonIcon button="button_back_SNES">./_inc/images/help-button-start.svg</customButtonIcon>
+         <customButtonIcon button="button_start_SNES">./_inc/images/help-button-back.svg</customButtonIcon>
+         <!-- dpad -->
+         <customButtonIcon button="dpad_leftright">./_inc/images/help-button-leftright.svg</customButtonIcon>
+         <entrySpacing>0.02083333</entrySpacing>
       </helpsystem>
       <helpsystem name="
          help-menu-view
@@ -72,19 +99,6 @@ license:       creative commons CC-BY-NC-SA
          <backgroundVerticalPadding>0.05 0.05</backgroundVerticalPadding>
          <backgroundCornerRadius>0.005</backgroundCornerRadius>
       </helpsystem>
-      <grid name="
-         system-grid,
-         gamelist-grid
-         ">
-         <origin>0.5 0</origin>
-         <pos>0.5 0.09259259</pos><!-- 50% 100 -->
-         <itemScale>1.05</itemScale>
-         <textColor>ffffff</textColor>
-         <backgroundImage>./_inc/images/grid-item-background.png</backgroundImage>
-         <selectorImage>./_inc/images/grid-item-selector.png</selectorImage>
-         <imageRelativeScale>0.7</imageRelativeScale>
-         <selectorLayer>middle</selectorLayer>
-      </grid>
    </view>
 
    <!--
@@ -95,11 +109,33 @@ license:       creative commons CC-BY-NC-SA
    <view name="
       system
       ">
-      <grid name="
-         system-grid
+      <image name="
+         system-carousel-background
          ">
+         <origin>0.5 0.5</origin>
+         <path>./_inc/images/item-background.png</path>
+      </image>
+      <carousel name="
+         system-carousel
+         ">
+         <origin>0.5 0.5</origin>
+         <size>1 1</size>
+         <color>00000000</color>
          <staticImage>./_inc/systems/${system.theme}.png</staticImage>
-      </grid>
+         <letterCaseAutoCollections>capitalize</letterCaseAutoCollections>
+         <fontPath>${fontBold}</fontPath>
+         <textColor>ffffff</textColor>
+         <fastScrolling>true</fastScrolling>
+      </carousel>
+      <text name="
+         system-name
+         ">
+         <origin>0.5 0.5</origin>
+         <fontSize>0.02962963</fontSize><!-- 32 -->
+         <fontPath>${fontBold}</fontPath>
+         <text>${system.fullName}</text>
+         <color>ffffffaa</color>
+      </text>
    </view>
 
    <!--
@@ -110,11 +146,198 @@ license:       creative commons CC-BY-NC-SA
    <view name="
       gamelist
       ">
+      <image name="
+         notification-bar
+         ">
+         <origin>0 0</origin>
+         <pos>0 0</pos>
+         <size>1 0.08333333</size><!-- 100% 90 -->
+         <tile>true</tile>
+         <color>00000055</color>
+         <path>./_inc/images/space.png</path>
+         <zIndex>1</zIndex>
+      </image>
+      <image name="
+         system-icon
+         ">
+         <path>./_inc/systems/${system.theme}.png</path>
+         <saturation>0</saturation>
+      </image>
+      <text name="
+         system-name,
+         auto-collection-name,
+         custom-collection-name
+         ">
+         <origin>0 0.5</origin>
+         <fontSize>0.02962963</fontSize><!-- 32 -->
+         <fontPath>${fontBold}</fontPath>
+         <metadata>systemFullname</metadata>
+         <color>ffffffaa</color>
+      </text>
+      <text name="
+         auto-collection-name
+         ">
+         <letterCase>capitalize</letterCase>
+         <visible>false</visible>
+      </text>
+      <text name="
+         custom-collection-name
+         ">
+         <defaultValue>Collections</defaultValue>
+         <visible>false</visible>
+      </text>
       <grid name="
          gamelist-grid
          ">
+         <origin>0.5 0</origin>
+         <itemScale>1.048</itemScale>
+         <fontPath>${fontBold}</fontPath>
+         <fontSize>0.02777778</fontSize>
+         <textColor>ffffff</textColor>
+         <systemNameSuffix>false</systemNameSuffix>
+         <backgroundImage>./_inc/images/item-background.png</backgroundImage>
+         <selectorImage>./_inc/images/item-selector.png</selectorImage>
+         <imageRelativeScale>0.75</imageRelativeScale>
+         <textRelativeScale>0.75</textRelativeScale>
+         <selectorLayer>middle</selectorLayer>
          <imageType>cover</imageType>
       </grid>
+      <video name="
+         game-art
+         ">
+         <origin>0.5 0.5</origin>
+         <delay>3</delay>
+         <iterationCount>1</iterationCount>
+         <onIterationsDone>image</onIterationsDone>
+         <interpolation>nearest</interpolation>
+         <pillarboxes>false</pillarboxes>
+         <imageType>screenshot</imageType>
+      </video>
+      <image name="
+         game-metadata-border
+         ">
+         <origin>0.5 0.5</origin>
+         <tile>true</tile>
+         <color>ffffffaa</color>
+         <path>./_inc/images/space.png</path>
+         <metadataElement>true</metadataElement>
+         <zIndex>1</zIndex>
+      </image>
+      <image name="
+         game-metadata-background
+         ">
+         <origin>0.5 0.5</origin>
+         <tile>true</tile>
+         <color>050089</color>
+         <colorEnd>36005F</colorEnd>
+         <gradientType>vertical</gradientType>
+         <path>./_inc/images/space.png</path>
+         <metadataElement>true</metadataElement>
+         <zIndex>2</zIndex>
+      </image>
+      <image name="
+         game-marquee
+         ">
+         <origin>0.5 0.5</origin>
+         <imageType>marquee</imageType>
+         <zIndex>3</zIndex>
+      </image>
+      <rating name="
+         game-rating
+         ">
+         <origin>0.5 0.5</origin>
+         <filledPath>./_inc/images/icon-star-filled.svg</filledPath>
+         <unfilledPath>./_inc/images/icon-star-unfilled.svg</unfilledPath>
+         <color>ffffff55</color>
+         <overlay>false</overlay>
+         <zIndex>3</zIndex>
+      </rating>
+      <image name="
+         game-releasedate-icon
+         ">
+         <origin>0 0.5</origin>
+         <path>./_inc/images/icon-releasedate.svg</path>
+         <color>ffffff55</color>
+         <metadataElement>true</metadataElement>
+         <zIndex>3</zIndex>
+      </image>
+      <datetime name="
+         game-releasedate"
+         >
+         <origin>0 0.5</origin>
+         <fontPath>${fontBold}</fontPath>
+         <metadata>releasedate</metadata>
+         <defaultValue>Unknown</defaultValue>
+         <color>ffffff</color>
+         <zIndex>3</zIndex>
+      </datetime>
+      <image name="
+         game-players-icon
+         ">
+         <origin>0 0.5</origin>
+         <path>./_inc/images/icon-players.svg</path>
+         <color>ffffff55</color>
+         <metadataElement>true</metadataElement>
+         <zIndex>3</zIndex>
+      </image>
+      <text name="
+         game-players"
+         >
+         <origin>0 0.5</origin>
+         <fontPath>${fontBold}</fontPath>
+         <metadata>players</metadata>
+         <defaultValue>Unknown</defaultValue>
+         <color>ffffff</color>
+         <zIndex>3</zIndex>
+      </text>
+      <image name="
+         game-lastplayed-icon
+         ">
+         <origin>0 0.5</origin>
+         <path>./_inc/images/icon-lastplayed.svg</path>
+         <color>ffffff55</color>
+         <metadataElement>true</metadataElement>
+         <zIndex>3</zIndex>
+      </image>
+      <datetime name="
+         game-lastplayed"
+         >
+         <origin>0 0.5</origin>
+         <fontPath>${fontBold}</fontPath>
+         <metadata>lastplayed</metadata>
+         <defaultValue>Never</defaultValue>
+         <color>ffffff</color>
+         <zIndex>3</zIndex>
+      </datetime>
+   </view>
+
+   <!--
+   ///
+   Sounds
+   ///
+   -->
+   <view name="all">
+      <sound name="systembrowse">
+         <path>./_inc/sounds/Option Move 2.wav</path>
+      </sound>
+      <sound name="quicksysselect">
+         <path>./_inc/sounds/Option Move 1.wav</path>
+      </sound>
+      <sound name="select">
+         <path>./_inc/sounds/Menu Turn Center.wav</path>
+      </sound>
+      <sound name="back">
+         <path>./_inc/sounds/Menu Turn Side.wav</path>
+      </sound>
+      <sound name="scroll">
+         <path>./_inc/sounds/Option Move 2.wav</path>
+      </sound>
+      <sound name="favorite">
+         <path>./_inc/sounds/Option Select.wav</path>
+      </sound>
+      <sound name="launch">
+         <path>./_inc/sounds/Press Start.wav</path>
+      </sound>
    </view>
 
    <!--

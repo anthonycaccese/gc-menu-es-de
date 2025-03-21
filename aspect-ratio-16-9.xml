@@ -13,15 +13,18 @@ based on 1920x1080
       system,
       gamelist
       ">
-      <grid name="
-         system-grid,
-         gamelist-grid
+      <systemstatus name="
+         system-status
          ">
-         <pos>0.5 0.07407407</pos><!-- 50% 80 -->
-         <size>0.88020833 0.81481481</size><!-- 1690 880 -->
-         <itemSize>0.08854167 -1</itemSize><!-- 170 170 -->
-         <itemSpacing>0.06875 0.05555556</itemSpacing><!-- 132 60 -->
-      </grid>
+         <pos>0.98958333 0.01851852</pos><!-- 1920 20 -->
+      </systemstatus>
+      <helpsystem name="
+         help-system-view,
+         help-gamelist-view
+         ">
+         <entrySpacing>0.03125</entrySpacing><!-- 60 -->
+         <iconTextSpacing>0.00729167</iconTextSpacing><!-- 14 -->
+      </helpsystem>
    </view>
 
    <!--
@@ -32,6 +35,25 @@ based on 1920x1080
    <view name="
       system
       ">
+      <image name="
+         system-carousel-background
+         ">
+         <pos>0.5 0.465</pos>
+         <size>0.4 0</size>
+      </image>
+      <carousel name="
+         system-carousel
+         ">
+         <pos>0.5 0.465</pos>
+         <maxItemCount>3</maxItemCount>
+         <itemSize>0.1 0.15</itemSize>
+         <itemScale>3.5</itemScale>
+      </carousel>
+      <text name="
+         system-name
+         ">
+         <pos>0.5 0.75</pos>
+      </text>
    </view>
 
    <!--
@@ -42,6 +64,101 @@ based on 1920x1080
    <view name="
       gamelist
       ">
+      <image name="
+         system-icon
+         ">
+         <pos>0.01041667 0.00925926</pos><!-- 20 10 -->
+         <maxSize>0.0390625 0.06944444</maxSize><!-- 75 75 -->
+      </image>
+      <text name="
+         system-name,
+         auto-collection-name,
+         custom-collection-name
+         ">
+         <pos>0.05729167 0.04166667</pos><!-- 110 45 -->
+      </text>
+      <grid name="
+         gamelist-grid
+         ">
+         <origin>0 0</origin>
+         <pos>0.06770833 0.125</pos><!-- 130 135 -->
+         <size>0.47916667 0.75</size><!-- 920 810 -->
+         <itemSize>0.12395833 0.22037037</itemSize><!-- 238 238 -->
+         <itemSpacing>0.05052083 0.03703704</itemSpacing><!-- 97 40 -->
+      </grid>
+      <video name="
+         game-art
+         ">
+         <pos>0.77291667 0.35185185</pos><!-- 1484 380 -->
+         <maxSize>0.3125 0.41666667</maxSize><!-- 600 450 -->
+      </video>
+      <image name="
+         game-metadata-border
+         ">
+         <pos>0.77291667 0.73333333</pos><!-- 1484 792 -->
+         <size>0.3125 0.24074074</size><!-- 600 260 -->
+      </image>
+      <image name="
+         game-metadata-background
+         ">
+         <pos>0.77291667 0.73333333</pos><!-- 1484 792 -->
+         <size>0.30989583 0.23611111</size><!-- 595 255 -->
+      </image>
+      <image name="
+         game-marquee
+         ">
+         <pos>0.69791667 0.6962963</pos><!-- 1340 752 -->
+         <maxSize>0.11979167 0.09259259</maxSize><!-- 230 100 -->
+      </image>
+      <rating name="
+         game-rating
+         ">
+         <pos>0.69791667 0.78888889</pos><!-- 1340 852 -->
+         <size>0.11979167 0.03888889</size><!-- 230 42 -->
+      </rating>
+      <image name="
+         game-releasedate-icon,
+         game-players-icon,
+         game-lastplayed-icon
+         ">
+         <size>0.02708333 0.04814815</size><!-- 52 52 -->
+      </image>
+      <image name="
+         game-releasedate-icon
+         ">
+         <pos>0.77708333 0.67777778</pos><!-- 1492 732 -->
+      </image>
+      <datetime name="
+         game-releasedate"
+         >
+         <pos>0.80989583 0.67777778</pos><!-- 1555 732 -->
+         <size>0 0.02777778</size>
+         <fontSize>0.02592593</fontSize><!-- 28 -->
+      </datetime>
+      <image name="
+         game-players-icon
+         ">
+         <pos>0.77708333 0.73333333</pos><!-- 1492 792 -->
+      </image>
+      <text name="
+         game-players"
+         >
+         <pos>0.80989583 0.73333333</pos><!-- 1555 792 -->
+         <size>0 0.02777778</size>
+         <fontSize>0.02592593</fontSize><!-- 28 -->
+      </text>
+      <image name="
+         game-lastplayed-icon
+         ">
+         <pos>0.77708333 0.78888889</pos><!-- 1492 852 -->
+      </image>
+      <datetime name="
+         game-lastplayed"
+         >
+         <pos>0.80989583 0.78888889</pos><!-- 1555 852 -->
+         <size>0 0.02777778</size>
+         <fontSize>0.02592593</fontSize><!-- 28 -->
+      </datetime>
    </view>
 
 </theme>

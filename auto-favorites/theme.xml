@@ -1,0 +1,11 @@
+<theme>
+   <include>./../theme.xml</include>
+   <view name="gamelist">
+      <text name="auto-collection-name">
+         <visible>true</visible>
+      </text>
+      <text name="system-name">
+         <visible>false</visible>
+      </text>
+   </view>
+</theme>
